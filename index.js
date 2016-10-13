@@ -1,4 +1,5 @@
 var express = require('express');
+var port = Number(process.env.PORT || 8080);
 var app = express();
 app.use('/',express.static('public'));
 app.get('/api/whoami',function(req,res){
@@ -14,4 +15,4 @@ app.get('/*',function(req,res){
     var data = '//'+req.hostname+'/api/whoami'
     res.redirect(data);
 });
-app.listen(8080);
+app.listen(port);
